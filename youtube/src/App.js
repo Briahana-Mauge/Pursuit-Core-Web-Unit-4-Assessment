@@ -16,7 +16,7 @@ class App extends React.Component {
         Youtube
         <Link to= '/'> Home</Link> {' '}
         <Link to='/about'>About</Link>{' '}
-        <Link to='/video'>Video</Link> {' '}
+        {/* <Link to='/video'>Video</Link> {' '} */}
       </nav>
 
       <br></br>
