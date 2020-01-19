@@ -1,3 +1,4 @@
+ 
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import Video from './Video';
@@ -21,6 +22,7 @@ class Result extends React.Component {
                                         <div className = 'singleVid'>
                                         <img
                                         key={result.id}
+                                        alt = {result.title}
                                             src={result.thumbnail}
                                             width={result.width}
                                             height={result.height}
@@ -36,13 +38,22 @@ class Result extends React.Component {
                     })
         )
     }
+    singleVideo = () => {
+        const {results} = this.state
+        return (
+            <>
+              <Video props = {results}/>
+            </>
+        )
+    }
     render() {
         return (
             <>
                 <h2>Results</h2>
                 <Switch>
                     <Route exact path='/' render={this.renderVideos} />
-                    <Route path='/video/:id' component={Video} />
+                    {/* <Route path='/video/:id' render = {(props) => <Video}/> */}
+                    <Route path='/video/:id' component={this.singleVideo} />
                 </Switch>
             </>
         )
