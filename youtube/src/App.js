@@ -4,7 +4,7 @@ import {Link, Route, Switch} from 'react-router-dom';
 import About from './Components/About';
 import Home from './Components/Home';
 import Video from './Components/Video';
-// import axios from 'axios';
+import axios from 'axios';
 // import ErrorNotFound
 
 class App extends React.Component {
