@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Result from './Result';
+import api from '../secret.js'
 
 class Home extends React.Component {
     constructor() {
@@ -18,7 +19,7 @@ class Home extends React.Component {
         // console.log(search)
         let videoIDs = [];
        
-        let searchAPI = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&order=relevance&key=AIzaSyAOnB1HKhP0_bepRLasgXrP7y7o21EXFSg&q=${search}&type=video`
+        let searchAPI = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&order=relevance&key=${api}&q=${search}&type=video`
         let res = await axios.get(searchAPI)
         videoIDs = res.data.items
         console.log(videoIDs)
@@ -38,7 +39,6 @@ class Home extends React.Component {
         })
     }
     handleSearchInput = (event) => {
-        const { ids } = this.state
         this.setState({
             search: event.target.value,
             ids: [],
