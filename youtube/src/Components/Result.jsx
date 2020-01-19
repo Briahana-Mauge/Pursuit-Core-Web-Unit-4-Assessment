@@ -11,35 +11,35 @@ class Result extends React.Component {
     renderVideos = () => {
         let { results } = this.state
         return (
-            <ul >
-                {
+            
                     results.map(result => {
                         return (
-                            <li key={result.id}>
+                           
                                 <Link to={`/video/${result.id}`}>
                                     {
                                         <>
-                                        <h3>{result.title}</h3>
+                                        <div className = 'singleVid'>
                                         <img
+                                        key={result.id}
                                             src={result.thumbnail}
                                             width={result.width}
                                             height={result.height}
                                         >
                                         </img>
+                                        <h3>{result.title}</h3>
+                                        </div>
                                     </>
                                 }
                                 </Link>
-                            </li>
+                         
                         )
                     })
-                }
-            </ul>
         )
     }
     render() {
         return (
             <>
-                <p>trial</p>
+                <h2>Results</h2>
                 <Switch>
                     <Route exact path='/' render={this.renderVideos} />
                     <Route path='/video/:id' component={Video} />
