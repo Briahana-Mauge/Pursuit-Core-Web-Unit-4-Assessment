@@ -17,3 +17,8 @@ nav a{
   font-size: 12px;
   margin-left: 12px;
 }
+#results{
+  display: grid;
+  grid-column: 1fr 1fr;
+  width: 100%;
+}

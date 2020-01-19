@@ -47,7 +47,7 @@ class Home extends React.Component {
 
     }
     render = () => {
-        const { ids, loading } = this.state
+        const { ids, loading, search } = this.state
         return (
             <>
                 <form onSubmit={this.handleSubmit}>
@@ -56,7 +56,8 @@ class Home extends React.Component {
                 </form>
                 {loading ?
                     <p>No Search Results. Search for videos above! </p> :
-                    <Result ids={ids} />}
+                    <Result ids={ids} 
+                    search = {search}/>}
 
 
 

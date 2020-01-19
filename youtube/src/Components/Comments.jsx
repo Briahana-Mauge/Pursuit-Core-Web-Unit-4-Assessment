@@ -1,10 +1,9 @@
 import React from 'react';
 const Comments = (props) => {
-    const items = props.comments.map((comment)=> {
+    const items = props.comments.reverse().map((comment)=> {
         return(
             <>
-            <li>{comment.name}</li>
-            <p>{comment.comment}</p>
+            <li><strong>{comment.name}</strong>: {comment.comment} </li>
             </>
         )
     })

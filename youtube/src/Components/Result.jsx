@@ -4,6 +4,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import Video from './Video';
 class Result extends React.Component {
     constructor(props) {
+        console.log(props)
         super();
         this.state = {
             results: props.ids
@@ -33,7 +34,7 @@ class Result extends React.Component {
                                     </>
                                 }
                                 </Link>
-                         
+                    
                         )
                     })
         )
@@ -48,13 +49,13 @@ class Result extends React.Component {
     }
     render() {
         return (
-            <>
-                <h2>Results</h2>
+            <><div id = 'results'>
                 <Switch>
                     <Route exact path='/' render={this.renderVideos} />
                     {/* <Route path='/video/:id' render = {(props) => <Video}/> */}
                     <Route path='/video/:id' component={this.singleVideo} />
                 </Switch>
+                </div>
             </>
         )
     }
