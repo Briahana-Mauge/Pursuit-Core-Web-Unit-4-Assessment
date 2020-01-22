@@ -15,26 +15,27 @@ class Home extends React.Component {
     }
     handleSubmit = async (event) => {
         event.preventDefault()
-        const { search, ids } = this.state;
+        const { search} = this.state;
         // console.log(search)
         let videoIDs = [];
-       
+        let newId = []
+        console.log(newId)
         let searchAPI = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&order=relevance&key=${api}&q=${search}&type=video`
         let res = await axios.get(searchAPI)
         videoIDs = res.data.items
         console.log(videoIDs)
         for (let i = 0; i < videoIDs.length; i++) {
-            ids.push({
+            newId.push({
                 id: `${videoIDs[i].id.videoId}`,
                 title: `${videoIDs[i].snippet.title}`,
                 thumbnail: `${videoIDs[i].snippet.thumbnails.medium.url}`,
                 width: `${videoIDs[i].snippet.thumbnails.medium.width}`,
                 height: `${videoIDs[i].snippet.thumbnails.medium.height}`
             })
-            console.log(ids)
         }
+
         this.setState({
-            ids: ids,
+            ids: newId,
             loading: false
         })
     }
@@ -51,13 +52,13 @@ class Home extends React.Component {
         return (
             <>
                 <form onSubmit={this.handleSubmit}>
-                    <input type='text' placeholder='Search for a video' onChange={this.handleSearchInput}></input>
+                    <input type='text' placeholder='Search for a video' onChange={this.handleSearchInput} value={search}></input>
                     <input type='submit' value='Search'></input>
                 </form>
                 {loading ?
                     <p>No Search Results. Search for videos above! </p> :
-                    <Result ids={ids} 
-                    search = {search}/>}
+                    <Result ids={ids}
+                        search={search} />}
 
 
 

@@ -43,7 +43,7 @@ class Result extends React.Component {
         const {results} = this.state
         return (
             <>
-              <Video props = {results}/>
+              <Video id = {results}/>
             </>
         )
     }
@@ -52,8 +52,7 @@ class Result extends React.Component {
             <><div id = 'results'>
                 <Switch>
                     <Route exact path='/' render={this.renderVideos} />
-                    {/* <Route path='/video/:id' render = {(props) => <Video}/> */}
-                    <Route path='/video/:id' component={this.singleVideo} />
+                    <Route path='/video/:id' render={this.singleVideo} />
                 </Switch>
                 </div>
             </>
